@@ -1,40 +1,40 @@
 .header {
-    @import '../../../theme/mq';
-    @import '../../../theme/palette';
+  @import '../../../theme/mq';
+  @import '../../../theme/palette';
 
-    @media #{$phonePortrait} {
-        @import './mq/phonePortrait';
-    }
+  @media #{$phonePortrait} {
+    @import './mq/phonePortrait';
+  }
 
-    @media #{$phoneLandscape} {
-        @import './mq/phoneLandscape';
-    }
+  @media #{$phoneLandscape} {
+    @import './mq/phoneLandscape';
+  }
 
-    @media #{$phoneLandscapePlus} {
-        @import './mq/phoneLandscapePlus';
-    }
+  @media #{$phoneLandscapePlus} {
+    @import './mq/phoneLandscapePlus';
+  }
 
-    @media #{$tabletPortrait} {
-        @import './mq/tabletPortrait';
-    }
+  @media #{$tabletPortrait} {
+    @import './mq/tabletPortrait';
+  }
 
-    @media #{$tabletLandscape} {
-        @import './mq/tabletLandscape';
-    }
+  @media #{$tabletLandscape} {
+    @import './mq/tabletLandscape';
+  }
 
-    @media #{$desktop} {
-        @import './mq/desktop';
-    }
+  @media #{$desktop} {
+    @import './mq/desktop';
+  }
 
-    @media #{$desktopWide} {
-        @import './mq/desktopWide';
-    }
+  @media #{$desktopWide} {
+    @import './mq/desktopWide';
+  }
 
-    @media #{$desktopHD} {
-        @import './mq/desktopHD';
-    }
+  @media #{$desktopHD} {
+    @import './mq/desktopHD';
+  }
 
-    @media #{$desktopMega} {
-        @import './mq/desktopMega';
-    }
+  @media #{$desktopMega} {
+    @import './mq/desktopMega';
+  }
 }

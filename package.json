@@ -17,11 +17,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "yarn lint:ts && yarn lint:scss",
+    "lint:ts": "eslint './src/**/*.{ts,tsx}'",
+    "lint:scss": "stylelint './src/**/*.scss'",
+    "prettier": "yarn prettier:ts && yarn prettier:scss",
+    "prettier:ts": "prettier-eslint --list-different './src/**/*.{ts,tsx}'; prettier-eslint --write './src/**/*.{ts,tsx}'",
+    "prettier:scss": "prettier-stylelint --write './src/**/*.scss'"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "prettier": {},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -33,5 +40,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^11.1.1",
+    "stylelint-config-airbnb": "^0.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.12.1"
   }
 }
