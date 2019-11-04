@@ -1,5 +1,8 @@
 {
   "extends": "stylelint-config-airbnb",
+  "plugins": [
+    "stylelint-order"
+  ],
   "rules": {
     "string-quotes": "single",
     "rule-empty-line-before": ["always", {
@@ -12,6 +15,11 @@
         "first-nested",
         "blockless-after-blockless"
       ]
-    }]
+    }],
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-alphabetical-order": true
   }
 }
