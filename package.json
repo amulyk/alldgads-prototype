@@ -24,8 +24,7 @@
     "lint:scss": "stylelint './src/**/*.scss'",
     "prettier": "yarn prettier:ts && yarn prettier:scss",
     "prettier:ts": "prettier-eslint --list-different './src/**/*.{ts,tsx}'; prettier-eslint --write './src/**/*.{ts,tsx}'",
-    "prettier:scss": "prettier-stylelint --write './src/**/*.scss'",
-    "commit": "git-cz"
+    "prettier:scss": "prettier-stylelint --write './src/**/*.scss'"
   },
   "husky": {
     "hooks": {
