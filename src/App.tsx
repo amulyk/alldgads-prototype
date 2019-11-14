@@ -1,4 +1,4 @@
 import React from 'react';
-import { Header } from './components/header';
+import { Counter } from './components/counter';
 
-export const App: React.FC = () => <Header title="Welcome!" />;
+export const App: React.FC = () => <Counter />;
