@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
-export const useCounter = () => {
+type useCounter = {
+  counter: number;
+  increase: () => void;
+  decrease: () => void;
+}
+
+export const useCounter = (): useCounter => {
   const [counter, setCounter] = useState(0);
 
   const increase = (): void => {
