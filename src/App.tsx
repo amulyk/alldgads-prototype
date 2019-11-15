@@ -1,4 +1,11 @@
 import React from 'react';
-import { Counter } from './components/counter';
+import { Provider } from 'react-redux';
+import { store } from './init/store';
 
-export const App: React.FC = () => <Counter />;
+import { Starships } from './bus/starships';
+
+export const App: React.FC = () => (
+  <Provider store={store}>
+    <Starships />
+  </Provider>
+);

@@ -4,7 +4,7 @@ type useCounter = {
   counter: number;
   increase: () => void;
   decrease: () => void;
-}
+};
 
 export const useCounter = (): useCounter => {
   const [counter, setCounter] = useState(0);
