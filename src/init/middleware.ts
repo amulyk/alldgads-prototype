@@ -1,19 +1,13 @@
 // Core
-import { compose } from 'redux';
 import { createLogger } from 'redux-logger';
-import { customThunk } from './customThunk';
-
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-  }
-}
+import { Middleware } from 'redux';
+import thunk from 'redux-thunk';
 
 export const logger = createLogger({
   duration: true,
   collapsed: true,
   colors: {
-    title: (action) => (action.error ? 'firebrick' : 'deepskyblue'),
+    title: (action): string => (action.error ? 'firebrick' : 'deepskyblue'),
     prevState: (): string => '#1C5FAF',
     action: (): string => '#149945',
     nextState: (): string => '#A47104',
@@ -21,14 +15,12 @@ export const logger = createLogger({
   },
 });
 
-const __DEV__ = process.env.NODE_ENV === 'development';
-const devtools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const composeEnhancers = devtools || compose;
+const devEnvironment = process.env.NODE_ENV === 'development';
 
-const middleware: any = [customThunk];
+const middleware: Middleware[] = [thunk];
 
-if (__DEV__) {
+if (devEnvironment) {
   middleware.push(logger);
 }
 
-export { composeEnhancers, middleware };
+export { middleware };
