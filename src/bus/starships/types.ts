@@ -1,4 +1,4 @@
-import { ThunkDispatch } from 'redux-thunk';
+import { Dispatch } from 'redux';
 
 export type Starship = {
   name: string;
@@ -12,7 +12,7 @@ export type ErrorHttpAction = {
   status: number;
 };
 
-export type ThunkFunction = (dispatch: ThunkDispatch<MyState, void, Actions>) => Promise<void>;
+export type ThunkFunction = (dispatch: Dispatch<StarshipsActionTypes>) => Promise<void>;
 
 // Sync
 export const STARSHIPS_START_FETCHING = 'STARSHIPS_START_FETCHING';
@@ -28,7 +28,7 @@ type StarshipsStopFetchingAction = {
 export const STARSHIPS_FILL = 'STARSHIPS_FILL';
 type StarshipsFillAction = {
   type: typeof STARSHIPS_FILL;
-  payload: Starships;
+  payload: Starship[];
 };
 
 export const STARSHIPS_SET_FETCHING_ERROR = 'STARSHIPS_SET_FETCHING_ERROR';
@@ -39,7 +39,9 @@ type StarshipsSetFetchingErrorAction = {
 };
 // Async
 export const STARSHIPS_FETCH_ASYNC = 'STARSHIPS_FETCH_ASYNC';
-type StarshipsFetchAsyncAction = ThunkFunction;
+type StarshipsFetchAsyncAction = {
+  type: typeof STARSHIPS_FETCH_ASYNC;
+};
 
 export type StarshipsActionTypes =
   | StarshipsStartFetchingAction

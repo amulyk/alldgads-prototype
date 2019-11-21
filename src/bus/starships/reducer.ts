@@ -1,17 +1,18 @@
 /* eslint-disable no-case-declarations */
 // Types
 import {
-  StarshipsActionTypes,
+  ErrorHttpAction,
+  Starship,
+  STARSHIPS_FETCH_ASYNC,
+  STARSHIPS_FILL,
+  STARSHIPS_SET_FETCHING_ERROR,
   STARSHIPS_START_FETCHING,
   STARSHIPS_STOP_FETCHING,
-  STARSHIPS_SET_FETCHING_ERROR,
-  STARSHIPS_FILL,
-  ErrorHttpAction,
-  Starships,
+  StarshipsActionTypes,
 } from './types';
 
 export type StarshipsState = {
-  data: Starships | [];
+  data: Starship[] | [];
   isFetching: boolean;
   error: false | ErrorHttpAction;
 }
@@ -38,6 +39,8 @@ export const starshipsReducer = (
       return { ...state, error: action.payload };
     case STARSHIPS_FILL:
       return { ...state, data: action.payload };
+    case STARSHIPS_FETCH_ASYNC:
+      return state;
 
     default:
       const x: never = action; // eslint-disable-line @typescript-eslint/no-unused-vars

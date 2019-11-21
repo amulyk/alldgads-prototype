@@ -1,6 +1,7 @@
 // Types
+
 import {
-  Starships,
+  Starship,
   STARSHIPS_FILL,
   STARSHIPS_START_FETCHING,
   STARSHIPS_STOP_FETCHING,
@@ -8,9 +9,10 @@ import {
   STARSHIPS_FETCH_ASYNC,
   StarshipsActionTypes,
   ErrorHttpAction,
+  ThunkFunction,
 } from './types';
-
 import { api } from '../../api';
+
 
 // Sync
 export function startFetching(): StarshipsActionTypes {
@@ -25,7 +27,7 @@ export function stopFetching(): StarshipsActionTypes {
   };
 }
 
-export function fill(payload: Starships): StarshipsActionTypes {
+export function fill(payload: Starship[]): StarshipsActionTypes {
   return {
     type: STARSHIPS_FILL,
     payload,
@@ -40,7 +42,7 @@ export function setFetchingError(payload: ErrorHttpAction): StarshipsActionTypes
   };
 }
 
-export function fetchAsync(): StarshipsActionTypes {
+export function fetchAsync(): ThunkFunction {
   return async (dispatch): Promise<void> => {
     dispatch({
       type: STARSHIPS_FETCH_ASYNC,
