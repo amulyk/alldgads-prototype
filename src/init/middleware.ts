@@ -1,7 +1,7 @@
 // Core
 import { createLogger } from 'redux-logger';
 import { Middleware } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
 export const logger = createLogger({
   duration: true,
@@ -15,12 +15,14 @@ export const logger = createLogger({
   },
 });
 
+const sagaMiddleware = createSagaMiddleware();
+
 const devEnvironment = process.env.NODE_ENV === 'development';
 
-const middleware: Middleware[] = [thunk];
+const middleware: Middleware[] = [sagaMiddleware];
 
 if (devEnvironment) {
   middleware.push(logger);
 }
 
-export { middleware };
+export { middleware, sagaMiddleware };

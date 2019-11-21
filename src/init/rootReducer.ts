@@ -8,4 +8,4 @@ export const rootReducer = combineReducers({
   starships,
 });
 
-export type AppState = ReturnType<typeof rootReducer>
+export type AppState = ReturnType<typeof rootReducer>;

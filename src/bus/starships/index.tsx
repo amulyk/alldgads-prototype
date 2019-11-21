@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useStarshipsFetch } from './hooks/useStarshipsFetch';
 import { Title } from '../../common/title';
+import { Starship } from './types';
 
 export const Starships = (): ReactElement => {
   const { isFetching, data, error } = useStarshipsFetch();
@@ -9,16 +10,17 @@ export const Starships = (): ReactElement => {
 
   const loader = isFetching && <p>Loading data from API...</p>;
 
-  // const list = isFetching || data.map(({ name }: Starship, index: number) => (
-  //   <li key={Number(index)}>{name}</li>
-  // ));
-  console.log(data);
+  const list = isFetching
+    || data.map(
+      ({ name }: Starship, index: number): ReactElement => <li key={Number(index)}>{name}</li>,
+    );
 
   return (
     <>
       <Title>Starships</Title>
       {errorMessage}
       {loader}
+      {list}
     </>
   );
 };

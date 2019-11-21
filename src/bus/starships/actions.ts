@@ -9,10 +9,7 @@ import {
   STARSHIPS_FETCH_ASYNC,
   StarshipsActionTypes,
   ErrorHttpAction,
-  ThunkFunction,
 } from './types';
-import { api } from '../../api';
-
 
 // Sync
 export function startFetching(): StarshipsActionTypes {
@@ -42,28 +39,8 @@ export function setFetchingError(payload: ErrorHttpAction): StarshipsActionTypes
   };
 }
 
-export function fetchAsync(): ThunkFunction {
-  return async (dispatch): Promise<void> => {
-    dispatch({
-      type: STARSHIPS_FETCH_ASYNC,
-    });
-
-    dispatch(startFetching());
-
-    const response = await api.starships.fetch();
-
-    if (response.status === 200) {
-      const { results } = await response.json();
-
-      dispatch(fill(results));
-    } else {
-      const error = {
-        status: response.status,
-      };
-
-      dispatch(setFetchingError(error));
-    }
-
-    dispatch(stopFetching());
+export function fetchAsync(): StarshipsActionTypes {
+  return {
+    type: STARSHIPS_FETCH_ASYNC,
   };
 }

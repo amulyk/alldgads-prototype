@@ -12,10 +12,10 @@ import {
 } from './types';
 
 export type StarshipsState = {
-  data: Starship[] | [];
+  data: Starship[];
   isFetching: boolean;
   error: false | ErrorHttpAction;
-}
+};
 
 const initialState: StarshipsState = {
   data: [],

@@ -1,5 +1,3 @@
-import { Dispatch } from 'redux';
-
 export type Starship = {
   name: string;
 };
@@ -11,8 +9,6 @@ export type Starships = {
 export type ErrorHttpAction = {
   status: number;
 };
-
-export type ThunkFunction = (dispatch: Dispatch<StarshipsActionTypes>) => Promise<void>;
 
 // Sync
 export const STARSHIPS_START_FETCHING = 'STARSHIPS_START_FETCHING';
