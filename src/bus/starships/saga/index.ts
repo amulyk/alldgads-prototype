@@ -13,5 +13,7 @@ function* watchFetchStarships(): SagaIterator {
 }
 
 export function* watchStarships(): SagaIterator {
-  yield all([call(watchFetchStarships)]);
+  yield all([
+    call(watchFetchStarships),
+  ]);
 }
