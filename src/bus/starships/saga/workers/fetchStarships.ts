@@ -25,14 +25,10 @@ export function* fetchStarships(): SagaIterator {
 
     const { results } = yield apply(response, response.json, []);
 
-    if (response.status !== 200) {
-      throw new Error(response.status);
-    }
-
     yield delay(200);
     yield put(fill(results));
   } catch (error) {
-    yield put(setFetchingError({ status: error }));
+    yield put(setFetchingError(error));
   } finally {
     yield put(stopFetching());
   }
