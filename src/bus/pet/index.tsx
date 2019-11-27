@@ -2,12 +2,19 @@ import React, { FC, ReactElement } from 'react';
 import { useLoaderData } from './hooks/useLoaderData';
 
 export const Pet: FC = (): ReactElement => {
-  const { loading, data } = useLoaderData();
+  const { loading, error, data } = useLoaderData();
 
   if (loading) {
     return <p>Loading...</p>;
   }
-  // if (error) return `Error! ${error.message}`;
+  if (error) {
+    return (
+      <p>
+        Error!
+        {error.message}
+      </p>
+    );
+  }
 
   return (
     <section>

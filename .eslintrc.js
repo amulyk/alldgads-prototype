@@ -16,7 +16,11 @@ module.exports =  {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
         'react/jsx-filename-extension': [2, { extensions: ['.tsx'] }],
-        'import/prefer-default-export': 0
+        'import/prefer-default-export': 0,
+        'graphql/template-strings': ['error', {
+            env: 'literal',
+            schemaJson: require('./schema'),
+        }]
     },
     settings:  {
         'import/parsers': {
@@ -32,5 +36,8 @@ module.exports =  {
     env: {
         browser: true,
         node: true
-    }
+    },
+    plugins: [
+      'graphql'
+    ]
 };

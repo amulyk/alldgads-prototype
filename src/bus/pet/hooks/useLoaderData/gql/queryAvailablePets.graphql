@@ -1,0 +1,3 @@
+query PET_QUERY_AVAILABLE_PETS {
+    availablePets
+}
