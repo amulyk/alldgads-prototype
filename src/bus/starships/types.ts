@@ -24,7 +24,7 @@ type StarshipsStopFetchingAction = {
 export const STARSHIPS_FILL = 'STARSHIPS_FILL';
 type StarshipsFillAction = {
   type: typeof STARSHIPS_FILL;
-  payload: Starship[];
+  payload: Starships;
 };
 
 export const STARSHIPS_SET_FETCHING_ERROR = 'STARSHIPS_SET_FETCHING_ERROR';

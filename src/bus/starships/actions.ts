@@ -1,7 +1,7 @@
 // Types
 
 import {
-  Starship,
+  Starships,
   STARSHIPS_FILL,
   STARSHIPS_START_FETCHING,
   STARSHIPS_STOP_FETCHING,
@@ -24,7 +24,7 @@ export function stopFetching(): StarshipsActionTypes {
   };
 }
 
-export function fill(payload: Starship[]): StarshipsActionTypes {
+export function fill(payload: Starships): StarshipsActionTypes {
   return {
     type: STARSHIPS_FILL,
     payload,

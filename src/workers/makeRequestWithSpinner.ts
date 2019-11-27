@@ -1,4 +1,5 @@
 // Core
+import { ActionCreator, AnyAction } from 'redux';
 import { SagaIterator } from '@redux-saga/core';
 import {
   put,
@@ -7,10 +8,22 @@ import {
   apply,
 } from 'redux-saga/effects';
 
-export function* makeRequestWithSpinner(options: any): SagaIterator {
+import { FillActionType, ErrorActionType } from '../types';
+
+type OptionsType<T> = {
+  fetcher: (uri?: string) => Promise<T>;
+  fetcherParam?: string;
+  startFetching: ActionCreator<AnyAction>;
+  stopFetching: ActionCreator<AnyAction>;
+  fill: FillActionType<T>;
+  setErrorAction: ErrorActionType;
+};
+
+
+export function* makeRequestWithSpinner<T>(options: OptionsType<T>): SagaIterator {
   const {
-    apiMethod,
-    payload,
+    fetcher,
+    fetcherParam,
     startFetching,
     stopFetching,
     fill,
@@ -20,7 +33,7 @@ export function* makeRequestWithSpinner(options: any): SagaIterator {
   try {
     yield put(startFetching());
 
-    const response = yield call(apiMethod, payload);
+    const response = yield call(fetcher, fetcherParam);
 
     const { results } = yield apply(response, response.json, []);
 

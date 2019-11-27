@@ -1,23 +1,28 @@
-// Instruments
-import {
-  startFetching,
-  stopFetching,
-  fill,
-  setFetchingError,
-} from '../../actions';
+// Core
+import { delay } from '@redux-saga/core/effects';
 
-import { api } from '../../../../api';
-import { makeRequestWithSpinner } from '../../../../workers';
+// Instruments
+// import {
+//   startFetching,
+//   stopFetching,
+//   fill,
+//   setFetchingError,
+// } from '../../actions';
+
+// import { api } from '../../../../api';
+// import { makeRequestWithSpinner } from '../../../../workers';
+// import { Starships } from '../../types';
 
 export function* fetchStarships(): Generator {
-  const options = {
-    apiMethod: api.starships.fetch,
-    payload: undefined,
-    startFetching,
-    stopFetching,
-    fill,
-    setErrorAction: setFetchingError,
-  };
+  // const options = {
+  //   fetcher: api.starships.fetch,
+  //   startFetching,
+  //   stopFetching,
+  //   fill,
+  //   setErrorAction: setFetchingError,
+  // };
 
-  yield makeRequestWithSpinner(options);
+  yield delay(300);
+
+  // yield makeRequestWithSpinner<Starships>(options);
 }

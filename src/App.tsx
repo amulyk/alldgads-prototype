@@ -1,11 +1,18 @@
+// Core
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from './init/store';
+import { ApolloProvider } from '@apollo/react-hooks';
 
-import { Starships } from './bus/starships';
+// Other
+import { store } from './init/store';
+import { client } from './init/graphqlClient';
+
+import { Pet } from './bus/pet';
 
 export const App: React.FC = () => (
   <Provider store={store}>
-    <Starships />
+    <ApolloProvider client={client}>
+      <Pet />
+    </ApolloProvider>
   </Provider>
 );

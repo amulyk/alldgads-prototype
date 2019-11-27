@@ -38,7 +38,7 @@ export const starshipsReducer = (
     case STARSHIPS_SET_FETCHING_ERROR:
       return { ...state, error: action.payload };
     case STARSHIPS_FILL:
-      return { ...state, data: action.payload };
+      return { ...state, ...action.payload };
     case STARSHIPS_FETCH_ASYNC:
       return state;
 

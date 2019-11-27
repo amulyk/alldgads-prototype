@@ -1,14 +1,12 @@
 import { root } from './config';
+import { Starships } from '../bus/starships/types';
 
 export const api = Object.freeze({
   starships: {
-    fetch: (): Promise<Response> => fetch(`${root}/starships`, {
+    fetch: (): Promise<Starships> => fetch(`${root}/starships`, {
       method: 'GET',
-    }),
-  },
-  planets: {
-    fetch: (): Promise<Response> => fetch(`${root}/planets`, {
-      method: 'GET',
-    }),
+    })
+      .then((response) => response.json())
+      .then((data) => ({ data })),
   },
 });
