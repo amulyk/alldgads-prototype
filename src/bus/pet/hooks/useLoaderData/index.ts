@@ -7,6 +7,7 @@ import { loader } from 'graphql.macro';
 // Types
 import { PET_QUERY_AVAILABLE_PETS } from './gql/__generated__/PET_QUERY_AVAILABLE_PETS';
 import { PET_QUERY_AVAILABLE_PETS_COPY } from './gql/__generated__/PET_QUERY_AVAILABLE_PETS_COPY';
+import {useEffect} from "react";
 
 // Queries
 const queryAvailablePets = loader('./gql/queryAvailablePets.graphql');
@@ -25,10 +26,13 @@ type UseLoaderDataType = {
 
 export const useLoaderData = (): UseLoaderDataType => {
   const { loading, error, data } = useQuery(queryAvailablePets);
-  const [getPets, { loading: l, data: temp }] = useLazyQuery(queryAvailablePetsCopy);
+  // const { loading: l, data: temp } = useQuery(queryAvailablePetsCopy);
+  const [getPets, { loading: l, data: temp, called }] = useLazyQuery(queryAvailablePetsCopy);
+
+  console.log('hook');
 
   if (!l) {
-    console.log(temp);
+    console.log('timer', temp);
   }
 
   setTimeout(() => {
