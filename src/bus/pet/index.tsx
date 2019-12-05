@@ -1,6 +1,12 @@
+// Core
 import React, { FC, ReactElement } from 'react';
+
+// Hooks
 import { useLoaderData } from './hooks/useLoaderData';
 import { useCreateAccount } from './hooks/useCreateAccount';
+
+// Components
+import { Profile } from './Profile';
 
 export const Pet: FC = (): ReactElement => {
   const { loading, error, data } = useLoaderData();
@@ -45,6 +51,7 @@ export const Pet: FC = (): ReactElement => {
       <input type="password" placeholder="password" name="password" onChange={handleChange} />
       <button type="submit" onClick={save}>Save</button>
       { createdAccountJSX }
+      <Profile />
     </section>
   );
 };
