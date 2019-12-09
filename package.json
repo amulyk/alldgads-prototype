@@ -7,6 +7,8 @@
     "@redux-saga/core": "^1.1.3",
     "apollo-boost": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link-http": "^1.5.16",
     "eslint-plugin-graphql": "^3.1.0",
     "graphql": "^14.5.8",
     "graphql.macro": "^1.4.2",
@@ -29,7 +31,7 @@
     "prettier": "yarn prettier:ts && yarn prettier:scss",
     "prettier:ts": "prettier-eslint --list-different './src/**/*.{ts,tsx}'; prettier-eslint --write './src/**/*.{ts,tsx}'",
     "prettier:scss": "prettier-stylelint --write './src/**/*.scss'",
-    "apollo:download-schema": "apollo client:download-schema --endpoint 'https://funded-pet-library.moonhighway.com'",
+    "apollo:download-schema": "apollo client:download-schema --endpoint 'http://localhost:4000/'",
     "apollo:generate-types": "apollo client:codegen --localSchemaFile './schema.json' --target 'typescript'"
   },
   "husky": {

@@ -6,66 +6,16 @@
     "mutationType": {
       "name": "Mutation"
     },
-    "subscriptionType": {
-      "name": "Subscription"
-    },
+    "subscriptionType": null,
     "types": [
       {
         "kind": "OBJECT",
         "name": "Query",
-        "description": "All of the Pet Library's root query types can be found in the `Query`. This list\ndefines all of the data you can ask for with a query.",
+        "description": null,
         "fields": [
           {
-            "name": "totalPets",
-            "description": "This query returns the total number of `Pet`s that are part of the Pet Library.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "availablePets",
-            "description": "This query returns the number of `Pet`s that are available for checkout.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "checkedOutPets",
-            "description": "This query returns the number of `Pet`s that have been checked out and are not available.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "allPets",
-            "description": "This query returns all of the data about the `Pet`s. This is a list of `Pet` objects that are part of the Pet Library.",
+            "name": "users",
+            "description": null,
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -74,218 +24,11 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INTERFACE",
-                    "name": "Pet",
-                    "ofType": null
-                  }
+                  "kind": "OBJECT",
+                  "name": "User",
+                  "ofType": null
                 }
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "allAvailablePets",
-            "description": "This query returns data about the `Pet`s who are currently available and not checked out.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INTERFACE",
-                    "name": "Pet",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "allCheckedOutPets",
-            "description": "This query returns data about the `Pet`s who are currently checked out and are not available.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INTERFACE",
-                    "name": "Pet",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "petById",
-            "description": "Use this query to return one `Pet` by ID. If you're not sure what the ID is,\nsend an `allPets` query to find the pet you want to view.",
-            "args": [
-              {
-                "name": "id",
-                "description": "REQUIRED: Sending an `id` will return a pet that has that ID.",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INTERFACE",
-                "name": "Pet",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "familyPets",
-            "description": "This query returns a list of Family Pets, either a `Cat` or `Dog`.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "UNION",
-                    "name": "FamilyPet",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "exoticPets",
-            "description": "This query returns a list of Exotic Pets, either a `Rabbit` or `Stingray`.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "UNION",
-                    "name": "ExoticPet",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "totalCustomers",
-            "description": "This query returns the total number of customers that are Pet Library members.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "allCustomers",
-            "description": "This query returns all of the data about the customers. This is a list of\n`Customer` objects that are members of the Pet Library.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Customer",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "customersWithPets",
-            "description": "This query will return a list of all of the customers who currently have pets checked out.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Customer",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "me",
-            "description": "When a `Customer` is logged in and has a valid authorization token, they can\nsend the `me` query to return data about themselves. `me` will return `null`\nif a `Customer` is not logged in.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -297,39 +40,13 @@
         "possibleTypes": null
       },
       {
-        "kind": "SCALAR",
-        "name": "Int",
-        "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INTERFACE",
-        "name": "Pet",
-        "description": "The Pet Library would not be the Pet Library without a `Pet`. The `Pet` type\ndescribes an animal that is part of the pet database. Once a `Pet` has been\nadded to the Pet Library, the pet can be checked in and checked out of the library.",
+        "kind": "OBJECT",
+        "name": "User",
+        "description": null,
         "fields": [
           {
-            "name": "id",
-            "description": "A unique identifier for each `Pet`. This value also serves as a lookup for the `petById` query.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "name",
-            "description": "The pet's given name",
+            "description": null,
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -344,60 +61,28 @@
             "deprecationReason": null
           },
           {
-            "name": "weight",
-            "description": "The weight (in pounds) of the pet in question.",
+            "name": "email",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "password",
+            "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "status",
-            "description": "The current checkout status of the pet. Must one of the values of the `PetStatus` enumerator: AVAILABLE or CHECKEDOUT.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "PetStatus",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "photo",
-            "description": "A `Photo` type. The `Photo` type is an object containing `thumb` and `full` for thumbnail and fullsize image links.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Photo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "dueDate",
-            "description": "If this pet is checked out (status: CHECKEDOUT), this field will return a date\nstring describing when the pet is due back. Always return pets on time.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "inCareOf",
-            "description": "If this pet is checked out (status: CHECKEDOUT), this field will return the\n`Customer` who checked this `Pet` out and is responsible for is security and\noverall happiness.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -405,38 +90,7 @@
           }
         ],
         "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "Cat",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Dog",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Rabbit",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Stingray",
-            "ofType": null
-          }
-        ]
-      },
-      {
-        "kind": "SCALAR",
-        "name": "ID",
-        "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
+        "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -451,870 +105,37 @@
         "possibleTypes": null
       },
       {
-        "kind": "SCALAR",
-        "name": "Float",
-        "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "PetStatus",
-        "description": "This enumeration type tells us whether or not a pet is checked out. If\n`AVAILABLE`, a `Customer` can take this pet home. If `CHECKEDOUT`, a `Customer`\nhas to wait for the pet to be returned.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "AVAILABLE",
-            "description": "A `Pet` with this status can be checked out.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "CHECKEDOUT",
-            "description": "A `Pet` with this status has already been checked out and is unavailable.",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Photo",
-        "description": "Each `Pet` has a `Photo`, and this object describes the structure of that\n`Photo`: a fullsize and thumbnail version of the same `Pet` photo.",
-        "fields": [
-          {
-            "name": "full",
-            "description": "The url for a fullsize photo of a `Pet`.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "thumb",
-            "description": "The url for a thumbnail photo of a `Pet`.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Date",
-        "description": "A valid datetime value",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Customer",
-        "description": "Anyone who has created an account at the Pet Library is a `Customer`. Customers\ncan login and checkout/checkin pets to the Pet Library.",
-        "fields": [
-          {
-            "name": "username",
-            "description": "A unique username for the `Customer`.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "The `Customer`'s name as a string.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "dateCreated",
-            "description": "The date that this `Customer` was created (whenever the `createAccount` mutation was sent).",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "currentPets",
-            "description": "Returns a list of `Pet` objects that the `Customer` currently has checked out.\nIf the `Customer` does not have any pets checked out, this value will be an empty array.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INTERFACE",
-                    "name": "Pet",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "checkoutHistory",
-            "description": "Returns a list of `Checkout`s, objects that describe a pet checkout\ntransaction. If the `Customer` has never checked out a pet, this value will be\nan empty array.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Checkout",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Checkout",
-        "description": "Every time a `Pet` is checked out, a record of that `Checkout` is logged. This\nprovides information about the pet, when the pet was checked out and in, and\nwhether or not the pet was late. If you want to find out if a `Customer` is a\ndelinquent, look for the `Checkout` type.",
-        "fields": [
-          {
-            "name": "pet",
-            "description": "The entire `Pet` object for the pet who was just checked out.",
-            "args": [],
-            "type": {
-              "kind": "INTERFACE",
-              "name": "Pet",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "checkOutDate",
-            "description": "The date that this `Pet` was checked out. This is used to calculate the dueDate.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Date",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "checkInDate",
-            "description": "The date that this `Pet` was checked out. This is used to calculate the dueDate.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Date",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "late",
-            "description": "A boolean flag to indicate whether the `Pet` was checked in late. If this\nvalue is true, this means that you blocked another person from checking out a\n`Pet`. You can do better than that.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Boolean",
-        "description": "The `Boolean` scalar type represents `true` or `false`.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "UNION",
-        "name": "FamilyPet",
-        "description": "`FamilyPet` is a union type which means that either a `Cat` or `Dog` could be returned for each `FamilyPet`.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "Cat",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Dog",
-            "ofType": null
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Cat",
-        "description": "A `Cat` is a small, carnivorous mammal who is usually sleeping.",
-        "fields": [
-          {
-            "name": "id",
-            "description": "A unique identifier for each `Cat`.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "The cat's given name",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "weight",
-            "description": "The weight (in pounds) of the cat in question.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "status",
-            "description": "The current checkout status of the cat. Must one of the values of the `PetStatus` enumerator: AVAILABLE or CHECKEDOUT.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "PetStatus",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "photo",
-            "description": "A `Photo` type. The `Photo` type is an object containing `thumb` and `full` for thumbnail and fullsize image links.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Photo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "dueDate",
-            "description": "If this cat is checked out (status: CHECKEDOUT), this field will return a date\nstring describing when the cat is due back. Always return cats on time.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "inCareOf",
-            "description": "If this pet is checked out (status: CHECKEDOUT), this field will return the\n`Customer` who checked this `Cat` out and is responsible for is security and\noverall happiness.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "sleepAmount",
-            "description": "The number of hours a cat sleeps per day.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "curious",
-            "description": "A Boolean describing whether or not this `Cat` is curious. This is almost always `true`.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Pet",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Dog",
-        "description": "A `Dog` is a wolf descendant that you can dress in a little jacket.",
-        "fields": [
-          {
-            "name": "id",
-            "description": "A unique identifier for each `Dog`.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "The dog's given name.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "weight",
-            "description": "The weight (in pounds) of the dog in question.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "status",
-            "description": "The current checkout status of the dog. Must one of the values of the `PetStatus` enumerator: AVAILABLE or CHECKEDOUT.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "PetStatus",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "photo",
-            "description": "A `Photo` type. The `Photo` type is an object containing `thumb` and `full` for thumbnail and fullsize image links.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Photo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "dueDate",
-            "description": "If this dog is checked out (status: CHECKEDOUT), this field will return a date\nstring describing when the dog is due back. Always return dogs on time.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "inCareOf",
-            "description": "If this dog is checked out (status: CHECKEDOUT), this field will return the\n`Customer` who checked this `Dog` out and is responsible for is security and\noverall happiness.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "good",
-            "description": "A Boolean describing whether or not this `Dog` is a good dog. This is almost always `true`.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Pet",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "UNION",
-        "name": "ExoticPet",
-        "description": "`ExoticPet` is a union type which means that either a `Rabbit` or `Stingray` could be returned for each `ExoticPet`.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "Rabbit",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Stingray",
-            "ofType": null
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Rabbit",
-        "description": "A `Rabbit` hops and flops around.",
-        "fields": [
-          {
-            "name": "id",
-            "description": "A unique identifier for each `Rabbit`.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "The rabbit's given name.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "weight",
-            "description": "The weight (in pounds) of the rabbit in question.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "status",
-            "description": "The current checkout status of the rabbit. Must one of the values of the `PetStatus` enumerator: AVAILABLE or CHECKEDOUT.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "PetStatus",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "photo",
-            "description": "A `Photo` type. The `Photo` type is an object containing `thumb` and `full` for thumbnail and fullsize image links.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Photo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "dueDate",
-            "description": "If this rabbit is checked out (status: CHECKEDOUT), this field will return a\ndate string describing when the rabbit is due back. Always return rabbits on time.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "inCareOf",
-            "description": "If this rabbit is checked out (status: CHECKEDOUT), this field will return the\n`Customer` who checked this `Rabbit` out and is responsible for is security\nand overall happiness.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "favoriteFood",
-            "description": "This field will describe the favorite food of this particular rabbit. Don't\nassume it's always carrots. Rabbits contain multitudes.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "floppy",
-            "description": "This field describes, on a scale of 1-10 how floppy this particular rabbit is.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Pet",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Stingray",
-        "description": "A `Stingray` is a cartilaginous fish related to sharks common to coastal\ntropical and subtropical waters that the Pet Library will let you take home for some reason.",
-        "fields": [
-          {
-            "name": "id",
-            "description": "A unique identifier for each `Stingray`.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "The stingray's given name.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "weight",
-            "description": "The weight (in pounds) of the stingray in question.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "status",
-            "description": "The current checkout status of the stingray. Must one of the values of the\n`PetStatus` enumerator: AVAILABLE or CHECKEDOUT.",
-            "args": [],
-            "type": {
-              "kind": "ENUM",
-              "name": "PetStatus",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "photo",
-            "description": "A `Photo` type. The `Photo` type is an object containing `thumb` and `full` for thumbnail and fullsize image links.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Photo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "dueDate",
-            "description": "If this stingray is checked out (status: CHECKEDOUT), this field will return a\ndate string describing when the stingray is due back. Always return stingrays on time.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "inCareOf",
-            "description": "If this stingray is checked out (status: CHECKEDOUT), this field will return\nthe `Customer` who checked this `Stingray` out and is responsible for is\nsecurity and overall happiness",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "chill",
-            "description": "Is this stingray chill? This will tell you how chill on a scale of 1 (least chill) - 10 (most chill).",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "fast",
-            "description": "Is this stingray fast? If so, this field will return `true`.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Pet",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "OBJECT",
         "name": "Mutation",
-        "description": "All of the Pet Library's root mutation types can be found in the `Mutation`. Any\ntypes of data changes you want to make can be found here.",
+        "description": null,
         "fields": [
           {
-            "name": "createAccount",
-            "description": "When you need to create an account at the Pet Library, you'll need to send\nthis mutation. Your name + username + password is all you need to be given\ndominion over cats, dogs, rabbits, and/or stingrays.",
+            "name": "signUp",
+            "description": null,
             "args": [
               {
-                "name": "input",
-                "description": "REQUIRED: Send `username`, `name`, and `password` as arguments",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "CreateAccountInput",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "logIn",
-            "description": "A mutation used to log in a registered user. If you haven't created an account\nyet, start with the `createAccount` mutation.",
-            "args": [
-              {
-                "name": "username",
-                "description": "REQUIRED: Send your unique `username` as an argument to log in",
+                "name": "name",
+                "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "SCALAR",
-                    "name": "ID",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "email",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
                     "ofType": null
                   }
                 },
@@ -1322,7 +143,7 @@
               },
               {
                 "name": "password",
-                "description": "REQUIRED: Send your `password` as an argument to log in",
+                "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
@@ -1340,7 +161,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "LogInPayload",
+                "name": "User",
                 "ofType": null
               }
             },
@@ -1348,225 +169,46 @@
             "deprecationReason": null
           },
           {
-            "name": "checkOut",
-            "description": "A mutation used to check out a `Pet`. Once you check out a `Pet`, that pet is in your care, even the stingrays.",
-            "args": [
-              {
-                "name": "id",
-                "description": "This id will be used to locate the `Pet` and check them out.",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "CheckOutPayload",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "checkIn",
-            "description": "A mutation used to check a `Pet` back in to the Pet Library.",
-            "args": [
-              {
-                "name": "id",
-                "description": "This id will be used to locate the `Pet` and check them out.",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "ID",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Checkout",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "CreateAccountInput",
-        "description": "When a user creates an account, they must send `name`, `username`, and\n`password` to the `createAccount` mutation. This input type wraps those fields\ninto one fancy object.",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "name",
-            "description": "A `Customer`'s full name.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "username",
-            "description": "A `Customer`'s unique user name.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "password",
-            "description": "A `Customer`'s password.",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "LogInPayload",
-        "description": "When a `Customer` logs in to the Pet Library, they can get their token and\ncustomer information from the `LogInPayload` type. This is how user\nauthentication is handled at the library.",
-        "fields": [
-          {
-            "name": "customer",
-            "description": "The entire `Customer` object for the recently logged in individual.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "token",
-            "description": "The authorization token that can be used to run queries and mutations that require login.",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "CheckOutPayload",
-        "description": "Checking out a `Pet` is a dream come true for many people. Receiving `customer`,\n`pet`, and `checkoutDate` back as an object from the `checkOut` mutation is a\ndream come true for a pet librarian and a GraphQL enthusiast.",
-        "fields": [
-          {
-            "name": "customer",
-            "description": "The entire `Customer` object for the customer who just checked out a pet.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pet",
-            "description": "The entire `Pet` object for the pet who was just checked out.",
-            "args": [],
-            "type": {
-              "kind": "INTERFACE",
-              "name": "Pet",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "checkOutDate",
-            "description": "The date that this `Pet` was checked out. This is used to calculate the due date.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Date",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Subscription",
-        "description": null,
-        "fields": [
-          {
-            "name": "petReturned",
+            "name": "login",
             "description": null,
-            "args": [],
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "password",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
             "type": {
-              "kind": "OBJECT",
-              "name": "Checkout",
-              "ofType": null
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -1918,6 +560,16 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "Boolean",
+        "description": "The `Boolean` scalar type represents `true` or `false`.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -2397,44 +1049,19 @@
         "possibleTypes": null
       },
       {
-        "kind": "OBJECT",
-        "name": "CreateAccountPayload",
-        "description": "When a new customer creates an account, this object will be returned from the `createAccount` mutation.",
-        "fields": [
-          {
-            "name": "customer",
-            "description": "The entire `Customer` object for the recently registered individual.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "message",
-            "description": "A welcome message to the new `Customer` encouraging them to log in.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
+        "kind": "SCALAR",
+        "name": "Upload",
+        "description": "The `Upload` scalar type represents a file upload.",
+        "fields": null,
         "inputFields": null,
-        "interfaces": [],
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
       {
         "kind": "SCALAR",
-        "name": "Upload",
-        "description": "The `Upload` scalar type represents a file upload.",
+        "name": "Int",
+        "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,

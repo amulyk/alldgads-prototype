@@ -1,1 +1,0 @@
-export { fetchStarships } from './fetchStarships';
