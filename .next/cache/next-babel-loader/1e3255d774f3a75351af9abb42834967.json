@@ -1,1 +1,0 @@
-{"ast":null,"code":"export { fetchStarships } from './fetchStarships';","map":{"version":3,"sources":["/Users/amulyk/Desktop/projects/alldgads-prototype/src/bus/starships/saga/workers/index.ts"],"names":["fetchStarships"],"mappings":"AAAA,SAASA,cAAT,QAA+B,kBAA/B","sourcesContent":["export { fetchStarships } from './fetchStarships';\n"]},"metadata":{},"sourceType":"module"}

@@ -1,5 +1,4 @@
 src/serviceWorker.ts
 src/react-app-env.d.ts
 next.config.js
-src/lib/redux.tsx
-src/lib/apollo.tsx
+src/lib/*

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { NextPage } from 'next';
-import { withApollo } from '../lib/apollo';
+// import withApollo from '../lib/withApollo';
 import { UserComponent } from '../bus/user';
 
 const User: NextPage = (): ReactElement => (
@@ -10,4 +10,6 @@ const User: NextPage = (): ReactElement => (
   </h1>
 );
 
-export default withApollo(User);
+// const ImprovedComponent = withApollo(User);
+
+export default User;

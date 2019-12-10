@@ -1,18 +1,61 @@
+/* eslint-disable */
 // Core
-import { createStore, applyMiddleware, Store } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { createStore, applyMiddleware } from 'redux';
+
+// Middleware
+import createSagaMiddleware from 'redux-saga';
+import { createLogger } from 'redux-logger';
 
 // Instruments
 import { rootReducer } from './rootReducer';
 import { rootSaga } from './rootSaga';
-import { middleware, sagaMiddleware } from './middleware';
 
-// export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middleware)));
+const sagaMiddleware = createSagaMiddleware();
 
-export const store = (preloadedState: {}): Store => createStore(
-  rootReducer,
-  preloadedState,
-  composeWithDevTools(applyMiddleware(...middleware)),
-);
+// @ts-ignore
+const bindMiddleware = (middleware) => {
+  if (process.env) {
+    /* eslint-disable-next-line global-require */
+    const { composeWithDevTools } = require('redux-devtools-extension');
+    middleware.push(
+      createLogger({
+        duration:  true,
+        timestamp: true,
+        collapsed: true,
+        diff:      true,
+        colors:    {
+          title: (action) => {
+            return action.error ? 'firebrick' : 'deepskyblue';
+          },
+          prevState: () => 'dodgerblue',
+          action:    () => 'greenyellow',
+          nextState: () => 'olivedrab',
+          error:     () => 'firebrick',
+        },
+      }),
+    );
 
-sagaMiddleware.run(rootSaga);
+    return composeWithDevTools(applyMiddleware(...middleware));
+  }
+
+  return applyMiddleware(...middleware);
+};
+
+export const initStore = () => {
+  const store = createStore(
+    rootReducer,
+    bindMiddleware([sagaMiddleware]),
+  );
+
+  // @ts-ignore
+  store.runSagaTask = () => {
+    // @ts-ignore
+    store.sagaTask = sagaMiddleware.run(rootSaga);
+  };
+
+  // @ts-ignore
+  store.runSagaTask();
+
+  return store;
+};
+/* eslint-enable */

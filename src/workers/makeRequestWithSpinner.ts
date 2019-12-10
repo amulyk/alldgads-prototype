@@ -15,7 +15,7 @@ type OptionsType<T> = {
   fetcherParam?: string;
   startFetching: ActionCreator<AnyAction>;
   stopFetching: ActionCreator<AnyAction>;
-  fill: FillActionType<T>;
+  fill: ActionCreator<AnyAction>;
   setErrorAction: ErrorActionType;
 };
 
@@ -34,8 +34,7 @@ export function* makeRequestWithSpinner<T>(options: OptionsType<T>): SagaIterato
     yield put(startFetching());
 
     const response = yield call(fetcher, fetcherParam);
-
-    const { results } = yield apply(response, response.json, []);
+    const results = { data: response.data.results };
 
     yield delay(200);
     yield put(fill(results));
