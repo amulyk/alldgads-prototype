@@ -14,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // @ts-ignore
 const bindMiddleware = (middleware) => {
-  if (process.env) {
+  if (process.env.NODE_ENV === 'development') {
     /* eslint-disable-next-line global-require */
     const { composeWithDevTools } = require('redux-devtools-extension');
     middleware.push(

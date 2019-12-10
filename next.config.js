@@ -10,5 +10,5 @@ module.exports = withPlugins([
   [withBundleAnalyzer, {}],
   [withSass, {
     cssModules: true
-  }],
+  }]
 ]);

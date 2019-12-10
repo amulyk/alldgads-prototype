@@ -5,10 +5,9 @@ import {
   put,
   call,
   delay,
-  apply,
 } from 'redux-saga/effects';
 
-import { FillActionType, ErrorActionType } from '../types';
+import { ErrorActionType } from '../types';
 
 type OptionsType<T> = {
   fetcher: (uri?: string) => Promise<T>;
