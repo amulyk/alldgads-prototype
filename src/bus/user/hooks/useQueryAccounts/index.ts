@@ -1,13 +1,12 @@
 // Core
 import { ApolloError } from 'apollo-boost';
 import { useLazyQuery } from '@apollo/react-hooks';
-import { loader } from 'graphql.macro';
 
 // Types
 import { userQueryAccounts } from './gql/__generated__/userQueryAccounts';
 
 // Queries
-const queryAccounts = loader('./gql/queryAccounts.graphql');
+import queryAccounts from './gql/queryAccounts.graphql';
 
 type UseQueryAccountsType = {
   loading: boolean;

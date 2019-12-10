@@ -1,6 +1,5 @@
 // Core
 import { useMutation } from '@apollo/react-hooks';
-import { loader } from 'graphql.macro';
 import { useState, useEffect, ChangeEvent } from 'react';
 
 // Types
@@ -11,7 +10,7 @@ import {
 } from './gql/__generated__/login';
 
 // Mutations
-const mutationCreateAccount = loader('./gql/mutationLogin.graphql');
+import mutationCreateAccount from './gql/mutationLogin.graphql';
 
 type HandleChangeType = (event: ChangeEvent<HTMLInputElement>) => void;
 

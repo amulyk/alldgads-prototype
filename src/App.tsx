@@ -7,12 +7,12 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { store } from './init/store';
 import { client } from './init/graphqlClient';
 
-import { User } from './bus/user';
+import { UserComponent } from './bus/user';
 
 export const App: React.FC = () => (
   <Provider store={store}>
     <ApolloProvider client={client}>
-      <User />
+      <UserComponent />
     </ApolloProvider>
   </Provider>
 );
