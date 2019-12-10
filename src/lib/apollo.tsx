@@ -6,6 +6,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 
+// @ts-ignore
 let apolloClient = null
 
 /**
@@ -16,7 +17,9 @@ let apolloClient = null
  * @param {Object} [config]
  * @param {Boolean} [config.ssr=true]
  */
+// @ts-ignore
 export function withApollo(PageComponent, { ssr = true } = {}) {
+  // @ts-ignore
   const WithApollo = ({ apolloClient, apolloState, ...pageProps }) => {
     const client = apolloClient || initApolloClient(apolloState)
     return (
@@ -39,11 +42,13 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
   }
 
   if (ssr || PageComponent.getInitialProps) {
+    // @ts-ignore
     WithApollo.getInitialProps = async ctx => {
       const { AppTree } = ctx
 
       // Initialize ApolloClient, add it to the ctx object so
       // we can use it in `PageComponent.getInitialProp`.
+      // @ts-ignore
       const apolloClient = (ctx.apolloClient = initApolloClient())
 
       // Run wrapped getInitialProps methods
@@ -104,6 +109,7 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
  * Creates or reuses apollo client in the browser.
  * @param  {Object} initialState
  */
+// @ts-ignore
 function initApolloClient(initialState) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
@@ -112,10 +118,12 @@ function initApolloClient(initialState) {
   }
 
   // Reuse client on the client-side
+  // @ts-ignore
   if (!apolloClient) {
     apolloClient = createApolloClient(initialState)
   }
 
+  // @ts-ignore
   return apolloClient
 }
 

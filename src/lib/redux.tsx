@@ -3,7 +3,9 @@ import { Provider } from 'react-redux';
 import App from 'next/app';
 import { store } from '../init/store';
 
+// @ts-ignore
 export const withRedux = (PageComponent, { ssr = true } = {}) => {
+  // @ts-ignore
   const WithRedux = ({ initialReduxState, ...props }) => {
     const store = getOrInitializeStore(initialReduxState);
     return (
@@ -31,9 +33,11 @@ export const withRedux = (PageComponent, { ssr = true } = {}) => {
   }
 
   if (ssr || PageComponent.getInitialProps) {
+    // @ts-ignore
     WithRedux.getInitialProps = async context => {
       // Get or Create the store with `undefined` as initialState
       // This allows you to set a custom default initialState
+      // @ts-ignore
       const reduxStore = getOrInitializeStore()
 
       // Provide the store to getInitialProps of pages
@@ -56,17 +60,23 @@ export const withRedux = (PageComponent, { ssr = true } = {}) => {
   return WithRedux;
 };
 
+// @ts-ignore
 let reduxStore;
+// @ts-ignore
 const getOrInitializeStore = initialState => {
   // Always make a new store if server, otherwise state is shared between requests
   if (typeof window === 'undefined') {
+    // @ts-ignore
     return initializeStore(initialState);
   }
 
   // Create store if unavailable on the client and set it on the window object
+  // @ts-ignore
   if (!reduxStore) {
+    // @ts-ignore
     reduxStore = initializeStore(initialState);
   }
 
+  // @ts-ignore
   return reduxStore;
 };
