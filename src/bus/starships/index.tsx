@@ -3,6 +3,8 @@ import { useStarshipsFetch } from './hooks/useStarshipsFetch';
 import { Title } from '../../elements/title';
 import { Starship } from './types';
 
+import ArrowSvg from './arrow.svg';
+
 export const StarshipsComponent = (): ReactElement => {
   const { isFetching, data, error } = useStarshipsFetch();
 
@@ -21,6 +23,7 @@ export const StarshipsComponent = (): ReactElement => {
       {errorMessage}
       {loader}
       {list}
+      <ArrowSvg />
     </>
   );
 };
