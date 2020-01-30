@@ -1,3 +1,0 @@
-query PET_QUERY_AVAILABLE_PETS_COPY {
-    availablePets
-}

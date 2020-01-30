@@ -3,7 +3,9 @@ import { useStarshipsFetch } from './hooks/useStarshipsFetch';
 import { Title } from '../../elements/title';
 import { Starship } from './types';
 
-export const Starships = (): ReactElement => {
+import ArrowSvg from './arrow.svg';
+
+export const StarshipsComponent = (): ReactElement => {
   const { isFetching, data, error } = useStarshipsFetch();
 
   const errorMessage = typeof error === 'object' && error.status === 404 && <p>Not found!</p>;
@@ -23,6 +25,7 @@ export const Starships = (): ReactElement => {
       {errorMessage}
       {loader}
       {list}
+      <ArrowSvg />
     </>
   );
 };

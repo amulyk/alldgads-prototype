@@ -1,8 +1,0 @@
-query petProfile($id: ID!) {
-    petById(id: $id) {
-        id,
-        name,
-        weight,
-        status
-    }
-}

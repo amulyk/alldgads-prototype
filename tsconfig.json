@@ -17,8 +17,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "preserve"
   },
+  "exclude": [
+    "__generated__/globalTypes.ts"
+  ],
   "include": [
     "src"
   ]
