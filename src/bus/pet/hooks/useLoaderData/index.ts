@@ -2,7 +2,6 @@
 import { ApolloError } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { loader } from 'graphql.macro';
-// import { gql } from 'apollo-boost';
 
 // Types
 import { PET_QUERY_AVAILABLE_PETS } from './gql/__generated__/PET_QUERY_AVAILABLE_PETS';
