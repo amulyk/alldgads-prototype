@@ -11,9 +11,11 @@ export const Starships = (): ReactElement => {
   const loader = isFetching && <p>Loading data from API...</p>;
 
   const list = isFetching
-    || data.map(
+    || data.results.map(
       ({ name }: Starship, index: number): ReactElement => <li key={Number(index)}>{name}</li>,
     );
+
+  console.log(data.results);
 
   return (
     <>

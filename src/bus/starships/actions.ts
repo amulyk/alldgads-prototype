@@ -9,6 +9,8 @@ import {
   STARSHIPS_FETCH_ASYNC,
   StarshipsActionTypes,
   ErrorHttpAction,
+  StarshipsFillAction,
+  StarshipsSetFetchingErrorAction,
 } from './types';
 
 // Sync
@@ -24,14 +26,14 @@ export function stopFetching(): StarshipsActionTypes {
   };
 }
 
-export function fill(payload: Starships): StarshipsActionTypes {
+export function fill(payload: Starships): StarshipsFillAction {
   return {
     type: STARSHIPS_FILL,
     payload,
   };
 }
 
-export function setFetchingError(payload: ErrorHttpAction): StarshipsActionTypes {
+export function setFetchingError(payload: ErrorHttpAction): StarshipsSetFetchingErrorAction {
   return {
     type: STARSHIPS_SET_FETCHING_ERROR,
     error: true,

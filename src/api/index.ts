@@ -1,12 +1,17 @@
 import { root } from './config';
 import { Starships } from '../bus/starships/types';
 
-export const api = Object.freeze({
+export type FetchDataType<T> = () => Promise<T>
+type APIFetchDataType = {
+  starships: {fetch: FetchDataType<Starships>};
+};
+
+export const api: APIFetchDataType = Object.freeze({
   starships: {
     fetch: (): Promise<Starships> => fetch(`${root}/starships`, {
       method: 'GET',
     })
       .then((response) => response.json())
-      .then((data) => ({ data })),
+      .then(({ results }) => ({ results })),
   },
 });

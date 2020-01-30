@@ -2,7 +2,7 @@
 // Types
 import {
   ErrorHttpAction,
-  Starship,
+  Starships,
   STARSHIPS_FETCH_ASYNC,
   STARSHIPS_FILL,
   STARSHIPS_SET_FETCHING_ERROR,
@@ -12,13 +12,15 @@ import {
 } from './types';
 
 export type StarshipsState = {
-  data: Starship[];
+  data: Starships;
   isFetching: boolean;
   error: false | ErrorHttpAction;
 };
 
 const initialState: StarshipsState = {
-  data: [],
+  data: {
+    results: [],
+  },
   isFetching: false,
   error: false,
 };
@@ -38,7 +40,7 @@ export const starshipsReducer = (
     case STARSHIPS_SET_FETCHING_ERROR:
       return { ...state, error: action.payload };
     case STARSHIPS_FILL:
-      return { ...state, ...action.payload };
+      return { ...state, data: { ...action.payload } };
     case STARSHIPS_FETCH_ASYNC:
       return state;
 

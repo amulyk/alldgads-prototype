@@ -33,7 +33,6 @@ export const useCreateAccount = (): UseCreateAccountType => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       updateCreatedAccount(data);
     }
   }, [data]);

@@ -4,8 +4,6 @@ import { SagaIterator } from '@redux-saga/core';
 import {
   put,
   call,
-  delay,
-  apply,
 } from 'redux-saga/effects';
 
 import { FillActionType, ErrorActionType } from '../types';
@@ -19,7 +17,6 @@ type OptionsType<T> = {
   setErrorAction: ErrorActionType;
 };
 
-
 export function* makeRequestWithSpinner<T>(options: OptionsType<T>): SagaIterator {
   const {
     fetcher,
@@ -32,13 +29,8 @@ export function* makeRequestWithSpinner<T>(options: OptionsType<T>): SagaIterato
 
   try {
     yield put(startFetching());
-
-    const response = yield call(fetcher, fetcherParam);
-
-    const { results } = yield apply(response, response.json, []);
-
-    yield delay(200);
-    yield put(fill(results));
+    const result = yield call(fetcher, fetcherParam);
+    yield put(fill(result));
   } catch (error) {
     yield put(setErrorAction(error));
   } finally {

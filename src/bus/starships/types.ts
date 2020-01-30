@@ -3,7 +3,7 @@ export type Starship = {
 };
 
 export type Starships = {
-  data: Starship[];
+  results: Starship[];
 };
 
 export type ErrorHttpAction = {
@@ -22,13 +22,13 @@ type StarshipsStopFetchingAction = {
 };
 
 export const STARSHIPS_FILL = 'STARSHIPS_FILL';
-type StarshipsFillAction = {
+export type StarshipsFillAction = {
   type: typeof STARSHIPS_FILL;
   payload: Starships;
 };
 
 export const STARSHIPS_SET_FETCHING_ERROR = 'STARSHIPS_SET_FETCHING_ERROR';
-type StarshipsSetFetchingErrorAction = {
+export type StarshipsSetFetchingErrorAction = {
   type: typeof STARSHIPS_SET_FETCHING_ERROR;
   error: true;
   payload: ErrorHttpAction;
