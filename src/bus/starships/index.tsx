@@ -17,8 +17,6 @@ export const StarshipsComponent = (): ReactElement => {
       ({ name }: Starship, index: number): ReactElement => <li key={Number(index)}>{name}</li>,
     );
 
-  console.log(data.results);
-
   return (
     <>
       <Title>Starships</Title>

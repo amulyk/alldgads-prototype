@@ -47,7 +47,7 @@
     "prettier": "yarn prettier:ts && yarn prettier:scss",
     "prettier:ts": "prettier-eslint --list-different './src/**/*.{ts,tsx}'; prettier-eslint --write './src/**/*.{ts,tsx}'",
     "prettier:scss": "prettier-stylelint --write './src/**/*.scss'",
-    "apollo:download-schema": "apollo client:download-schema --endpoint 'https://funded-pet-library.moonhighway.com'",
+    "apollo:download-schema": "apollo client:download-schema --endpoint 'http://localhost:4000/'",
     "apollo:generate-types": "apollo client:codegen --localSchemaFile './schema.json' --target 'typescript'"
   },
   "husky": {
