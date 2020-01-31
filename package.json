@@ -21,6 +21,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.1.5",
     "next-compose-plugins": "^2.2.0",
+    "next-i18next": "^4.1.0",
     "next-redux-saga": "^4.1.2",
     "next-redux-wrapper": "^4.0.1",
     "react": "^16.11.0",
@@ -33,6 +34,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "dev": "nodemon --exec ts-node --project tsconfig.server.json ./src/server",
+    "build": "yarn build:base && tsc --project tsconfig.server.json",
     "start": "cross-env-shell BUILD_ENV=development NODE_ENV=development next",
     "build:base": "next build",
     "build:dev": "cross-env-shell BUILD_ENV=development NODE_ENV=development yarn build:base",
@@ -41,7 +44,8 @@
     "analyze": "cross-env-shell ANALYZE=true next build",
     "analyze:server": "cross-env-shell BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env-shell BUNDLE_ANALYZE=browser next build",
-    "lint": "yarn lint:ts && yarn lint:scss",
+    "type-check": "tsc",
+    "lint": "yarn type-check && yarn lint:ts && yarn lint:scss",
     "lint:ts": "eslint './src/**/*.{ts,tsx,graphql}'",
     "lint:scss": "stylelint './src/**/*.scss'",
     "prettier": "yarn prettier:ts && yarn prettier:scss",

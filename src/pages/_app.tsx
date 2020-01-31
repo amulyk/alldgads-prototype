@@ -8,6 +8,8 @@ import withReduxSaga from 'next-redux-saga';
 // Instruments
 import { initStore } from '../init/store';
 import withApollo from '../lib/withApollo';
+// @ts-ignore
+import { appWithTranslation } from '../i18n'
 
 class AppWrapper extends App {
   // @ts-ignore
@@ -33,5 +35,5 @@ class AppWrapper extends App {
   }
 }
 
-export default withApollo(withRedux(initStore)(withReduxSaga(AppWrapper)));
+export default appWithTranslation(withApollo(withRedux(initStore)(withReduxSaga(AppWrapper))));
 /* eslint-enable */

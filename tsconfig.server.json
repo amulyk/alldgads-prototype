@@ -9,7 +9,8 @@
     ]
   },
   "include": [
+    "src/i18n.ts",
     "next.config.js",
-    "server/**/*.ts"
+    "src/server/**/*.ts"
   ]
 }
