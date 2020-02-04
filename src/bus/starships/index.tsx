@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useStarshipsFetch } from './hooks/useStarshipsFetch';
 import { Title } from '../../elements/title';
@@ -10,8 +10,12 @@ export const StarshipsComponent = (): ReactElement => {
   const { isFetching, data, error } = useStarshipsFetch();
   const { t, i18n } = useTranslation();
 
-  const changeLocaleToRu = (): void => {
+  useEffect(() => {
     i18n.changeLanguage('ru');
+  }, []);
+
+  const changeLocaleToRu = (): void => {
+    i18n.changeLanguage('en');
   };
 
   const errorMessage = typeof error === 'object' && error.status === 404 && <p>Not found!</p>;
