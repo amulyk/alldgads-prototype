@@ -8,7 +8,7 @@ import withReduxSaga from 'next-redux-saga';
 // Instruments
 import { initStore } from '../init/store';
 import withApollo from '../lib/withApollo';
-import { appWithTranslation } from '../../i18n';
+import { appWithTranslation } from '../lib/i18n';
 
 class AppWrapper extends App {
   // @ts-ignore

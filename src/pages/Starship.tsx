@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { NextPage } from 'next';
 import { StarshipsComponent } from '../bus/starships';
 
-import { withTranslation } from '../../i18n';
+import { withTranslation } from '../lib/i18n';
 
 const Starship: NextPage = (): ReactElement => (
   <h1>
