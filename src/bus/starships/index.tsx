@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useStarshipsFetch } from './hooks/useStarshipsFetch';
 import { Title } from '../../elements/title';
 import { Starship } from './types';
@@ -7,6 +8,11 @@ import ArrowSvg from './arrow.svg';
 
 export const StarshipsComponent = (): ReactElement => {
   const { isFetching, data, error } = useStarshipsFetch();
+  const { t, i18n } = useTranslation();
+
+  const changeLocaleToRu = (): void => {
+    i18n.changeLanguage('ru');
+  };
 
   const errorMessage = typeof error === 'object' && error.status === 404 && <p>Not found!</p>;
 
@@ -23,6 +29,8 @@ export const StarshipsComponent = (): ReactElement => {
       {errorMessage}
       {loader}
       {list}
+      {t('common:title')}
+      <button type="submit" onClick={changeLocaleToRu}>Ru</button>
       <ArrowSvg />
     </>
   );
