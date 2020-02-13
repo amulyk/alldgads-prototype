@@ -1,10 +1,16 @@
 const NextI18Next = require("next-i18next").default;
 
-module.exports = new NextI18Next({
+const languages = ['en', 'uk', 'ru'];
+
+const options = {
   browserLanguageDetection: false,
   defaultLanguage: "uk",
   otherLanguages: ["en","ru"],
-  // workaround until next-i18next support public path
-  // https://github.com/isaachinman/next-i18next/issues/523
   localePath: typeof window === 'undefined' ? 'public/static/locales' : 'static/locales'
-});
+};
+
+const NextI18NextInstance = new NextI18Next(options);
+
+NextI18NextInstance.i18n.languages = languages;
+
+module.exports = NextI18NextInstance;

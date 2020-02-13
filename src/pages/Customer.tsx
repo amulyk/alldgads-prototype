@@ -10,7 +10,7 @@ import UserComponent from '../bus/user';
 //   ),
 // });
 
-const User: NextPage = () => (
+const Customer: NextPage = () => (
   <h1>
     User page
     <UserComponent />
@@ -22,4 +22,4 @@ const User: NextPage = () => (
 // });
 
 // export default withTranslation()(Customer);
-export default User;
+export default Customer;

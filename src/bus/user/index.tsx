@@ -8,7 +8,7 @@ import { useCreateAccount } from './hooks/useCreateAccount';
 import { Users } from './Users';
 import { Login } from './Login';
 
-export const UserComponent: FC = (): ReactElement => {
+const UserComponent: FC = (): ReactElement => {
   const {
     saveAccount,
     handleChange,
@@ -45,3 +45,5 @@ export const UserComponent: FC = (): ReactElement => {
     </section>
   );
 };
+
+export default UserComponent;
