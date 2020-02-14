@@ -23,10 +23,6 @@ const DeviceDetector: FC<PropTypes> = ({ source }: PropTypes): ReactElement => {
 
   return (
     <>
-      <h1>
-        Device:
-        { device }
-      </h1>
       <DetectedComponent />
     </>
   );

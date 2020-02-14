@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { DeviceDetectorType } from '../types';
+import { DeviceDetectorHookType } from '../types';
 import { getDeviceByWidth } from '../getDeviceByWidth';
 
-export const useReactiveDeviceDetector = (): DeviceDetectorType => {
+export const useReactiveDeviceDetector = (): DeviceDetectorHookType => {
   const [device, setDevice] = useState();
 
   useEffect(() => {
