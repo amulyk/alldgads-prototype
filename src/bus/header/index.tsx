@@ -7,13 +7,19 @@ import DeviceDetector from '../../helpers/deviceDetector';
 
 const source = {
   mobile: (): LoadableComponent => (
-    dynamic(() => import('./mobile'))
+    dynamic(() => import('./mobile'), {
+      ssr: false,
+    })
   ),
   desktop: (): LoadableComponent => (
-    dynamic(() => import('./desktop'))
+    dynamic(() => import('./desktop'), {
+      ssr: false,
+    })
   ),
   tablet: (): LoadableComponent => (
-    dynamic(() => import('./tablet'))
+    dynamic(() => import('./tablet'), {
+      ssr: false,
+    })
   ),
 };
 

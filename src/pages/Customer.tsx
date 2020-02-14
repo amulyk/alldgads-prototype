@@ -1,14 +1,14 @@
 import React from 'react';
 import { NextPage } from 'next';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 // import { withTranslation } from '../lib/i18n';
-import UserComponent from '../bus/user';
+// import UserComponent from '../bus/user';
 
-// const UserComponent = dynamic(() => import('../bus/user'), {
-//   loading: () => (
-//     <p>Loading...</p>
-//   ),
-// });
+const UserComponent = dynamic(() => import('../bus/user'), {
+  loading: () => (
+    <p>Loading...</p>
+  ),
+});
 
 const Customer: NextPage = () => (
   <h1>
